@@ -79,7 +79,7 @@ h4::after {
     bottom: 3px;
     right: -12px;
     background: var(--accent-color);
-    animation: blink 0.5s linear 0.75s infinite alternate;
+    animation: blink 0.5s linear var(--animation-delay) infinite alternate;
 }
 
 h3::after {
@@ -118,7 +118,7 @@ h5 {
     h3::after {
         position: absolute;
         bottom: 1px;
-        right: 110px;
+        right: 112px;
     }
 }
 
@@ -168,12 +168,29 @@ nav a#active {
 }
 
 .bar {
-    width: 25px;
-    height: 3px;
+    width: 27px;
+    height: 2px;
     background-color: var(--main-color);
     margin: 6px 0;
-    transition: 0.4s;
+    transition: 0.3s;
 }
+
+/* Change to X shape */
+.change .bar:nth-child(1) {
+    -webkit-transform: rotate(45deg) translate(7.25px, 4px);
+    transform: rotate(45deg) translate(7.25px, 4px);
+}
+
+.change .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.change .bar:nth-child(3) {
+    -webkit-transform: rotate(-45deg) translate(7.25px, -4px);
+    transform: rotate(-45deg) translate(7.25px, -4px);
+}
+
+
 
 /* Media query for mobile screens */
 @media only screen and (max-width: 600px) {
@@ -201,6 +218,7 @@ nav a#active {
     }
 
     main {
+        margin-bottom: 2em;
         transition: margin-top 0.3s ease;
     }
 
@@ -208,7 +226,6 @@ nav a#active {
         margin-top: 140px; /* Adjust this value based on your menu height */
     }
 }
-
 
 main {
     min-height: 76vh;
@@ -229,6 +246,10 @@ section {
 
 section#about, section#projects {
     width: 60vw;
+}
+
+section#projects {
+    margin-top: 2.5em;
 }
 
 section#about #about-inner {
@@ -321,7 +342,7 @@ section#projects article figure {
 
 section#projects article figure::after {
     content: "";
-    height: 98%;
+    height: 100%;
     width: 100%;
     position: absolute;
     top: 8px;

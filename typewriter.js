@@ -15,3 +15,10 @@ function waitForMs(ms) {
 }
 
 typeSentence(document.getElementById("typewriter"))
+
+document.addEventListener("DOMContentLoaded", function() {
+  const h4Element = document.querySelector('h4');
+  const textLength = h4Element.innerText.length;
+  const delay = textLength * 600; 
+  h4Element.style.setProperty('--animation-delay', `${delay}ms`);
+});
