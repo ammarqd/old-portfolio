@@ -1,24 +1,28 @@
-async function typeSentence(e, delay = 50) {
-  const letters = e.innerText.split("");
-  e.innerHTML = "";
-  let i = 0;
-  while(i < letters.length) {
-    e.append(letters[i]);
-    await waitForMs(delay);
-    i++
-  }
-  return;
-}
+const headers = {
+  "about.html": "More about me",
+  "projects.html": "My Projects",
+  "contact.html": "Get in touch"
+};
 
-function waitForMs(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
+const currentPage = window.location.pathname.split('/').pop();
 
-typeSentence(document.getElementById("typewriter"))
+const header = headers[currentPage]
+
+function typeSentence(e, text, delay = 50) {
+  const letters = text.split("");
+  letters.forEach((letter, i) => {
+    setTimeout(() => {
+      e.append(letter);
+    }, i * delay);
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   const h4Element = document.querySelector('h4');
-  const textLength = h4Element.innerText.length;
-  const delay = textLength * 600; 
-  h4Element.style.setProperty('--animation-delay', `${delay}ms`);
+  const textLength = header.length;
+  const typewriterDelay = 50;
+  const blinkerDelay = textLength * 50;
+  h4Element.classList.add('typewriter');
+  h4Element.style.setProperty('--animation-delay', `${blinkerDelay}ms`);
+  typeSentence(h4Element, header, typewriterDelay);
 });
