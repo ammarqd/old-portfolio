@@ -1,259 +1,407 @@
-body, p, a, ul, li, h1 {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+:root {
+    --main-bg-color: #0f172a;
+    --main-color: #fff;
+    --accent-color: #3eb5bb;
+    --link-color: #ccc;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
     list-style-type: none;
-    box-sizing: border-box;
-}
-
-body {
-    color: #fff;
-    font-family: "Share Tech Mono";
-    background-color: #7882A4;
-}
-
-#main-wrapper {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 a {
-    color: #fff;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+body {
+    color: var(--main-color);
+    font-family: 'Share Tech Mono', monospace;
+    background: var(--main-bg-color);
 }
 
 p {
-    font-size: 1rem;
     line-height: 2.0;
 }
 
-#admin-pic img {
-    height: 250px;
-    width: 250px;
-    box-shadow: 8px 8px #fff;
-}
-
-main {
-    height: 85vh;
-    width: 40vw;
+#main-wrapper {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-section {
-    display: flex;
-    justify-content: space-between;
-}
-
-p#about {
-    width: 60%;
-}
-
-.blog-post {
-    margin-bottom: 2rem;
-}
-
-.blog-post p{
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-}
-
-nav {
-    width: 40vw;
-    height: 15vh;
-}
-
-nav ul {
+header {
+    height: 11vh;
+    width: 100%;
+    padding: 0 1.25em;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-@media screen and (max-width: 530px) {
-    nav ul {
-        flex-direction: column;
-    }
-}
-
-nav li a {
-    padding-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
 h1 {
-    letter-spacing: .15rem;
-    font-size: 7rem;
-    font-weight: none;
-    font-style: normal;
+    color: var(--accent-color);
+    font-size: 7em;
 }
 
 h2 {
-    margin: 2rem 0;
-    letter-spacing: .15rem;
-    font-size: 1.6em;
+    font-size: 2.5em;
+    margin-bottom: 0.25em;
 }
 
 h3 {
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    letter-spacing: .15rem;
+    font-size: 1.6em;
+    position: relative;
+}
+
+h4 {
+    margin-bottom: 1em;
+    position: relative;
+    color: var(--accent-color);
     letter-spacing: .15rem;
     font-size: 2rem;
 }
 
-h4 {
-    margin: 0 auto;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+h4::after {
+    content: "";
+    height: 4px;
+    width: 12px;
+    position: absolute;
+    bottom: 3px;
+    right: -12px;
+    background: var(--accent-color);
+    animation: blink 0.5s linear 0.75s infinite alternate;
 }
 
-.container {
-    width: 100%; 
-    background-color: #d5d5d5;
-  }
-  
-.skills {
-    text-align: right; 
-    padding: 3px 0;
-    color: #7882A4; 
+h3::after {
+    content: "";
+    height: 4px;
+    width: 12px;
+    position: absolute;
+    bottom: 1px;
+    right: -12px;
+    background: var(--main-color);
+    animation: blink 0.5s linear 0s infinite alternate;
 }
 
-#html {
-    width: 90%; background-color: #fff;
-}
-#css {
-    width: 80%; background-color: #fff;
-} 
-#js {
-    width: 65%; background-color: #fff;
-} 
-#php {
-    width: 60%; background-color: #fff;
-} 
-#java {
-    width: 80%; background-color: #fff;
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 0;}
 }
 
-article {
-    width: 50%;
+h5 {
+    color: var(--accent-color);
+    font-size: 1.1em;
 }
 
-#blog-header {
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 5em;
+    }
+    h2 {
+        font-size: 2.25em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+    h3::after {
+        position: absolute;
+        bottom: 1px;
+        right: 110px;
+    }
+}
+
+nav ul {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    gap: 0 2em;
 }
 
-button#login {
-    background: none;
-    border: 3px solid #eee;
-    border-radius: 8px;
-    height: 2.4rem;
+nav a {
+    padding-bottom: 0.2em;
+    color: var(--link-colour);
+    font-size: 1.4em;
+    position: relative;
+    transition: 0.3s ease-out;
 }
 
-button#login a {
-    padding: 1.5rem;
-    font-family: 'Share Tech Mono';
-    font-size: 1rem;
-    text-align: center;
+nav a::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    border-bottom: 1px solid var(--accent-color);
+    transition: transform 0.3s ease-in;
+    transform: scaleX(0);
+    transform-origin: bottom right;
 }
 
-button#login:hover{
-    background-color: #626b8a;
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
-#blog-form {
-    height: 50vh;
-    width: 45%;
+nav a:hover {
+    color: var(--main-color);
+}
+
+nav a#active {
+    color: var(--main-color);
+    border-bottom: 1px solid var(--accent-color);
+}
+
+/* Add styles for the sandwich menu */
+.menu-toggle {
+    display: none; /* Hide the sandwich menu by default */
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--main-color);
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Media query for mobile screens */
+@media only screen and (max-width: 600px) {
+    .menu-toggle {
+        display: block; /* Show the sandwich menu on mobile screens */
+    }
+
+    nav ul {
+        display: none; /* Hide the navigation links by default on mobile */
+    }
+
+    ul.show {
+        display: flex; /* Show the navigation links when the menu is toggled */
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--main-bg-color);
+        width: 100%;
+        top: 80px;
+        left: 0;
+    }
+
+    ul.show li {
+        text-align: center;
+        padding: 0.35em 0;
+    }
+
+    main {
+        transition: margin-top 0.3s ease;
+    }
+
+    main.pushed-down {
+        margin-top: 140px; /* Adjust this value based on your menu height */
+    }
+}
+
+
+main {
+    min-height: 76vh;
+    padding: 0 2em;
     display: flex;
     flex-direction: column;
-}
-
-#blog-form input, #blog-form textarea {
-    padding: 0.5rem;
-    border-radius: 8px;
-    border: none;
-    color: #666;
-    font-family: 'Share Tech Mono';
-    font-size: 0.9rem;
-}
-
-#blog-form textarea {
-    height: 100%;
-    margin-top: 1rem;
-}
-
-#button-group {
-    margin: 1rem -0.5rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-#button-group input {
-    margin: 0 0.5rem;
-    width: 50%;
-}
-
-#login-form {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-#login-form input{
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: none;
-    color: #666;
-    font-size: 1rem;
-    font-family: 'Share Tech Mono';
+section {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}      
+
+section#about, section#projects {
+    width: 60vw;
 }
 
-#login-form #username{
-    margin-bottom: 1rem;
+section#about #about-inner {
+    display: flex;
 }
 
-#projects {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1rem;
+section#about #about-info {
+    padding-right: 3em;
 }
 
-#projects figure {
-    height: 250px;
-    width: 374px;
-    border: 3px solid #ffffff;
-    border-radius: 8px;
+/* Add a media query for mobile screens */
+@media only screen and (max-width: 600px) {
+
+    section {
+        margin-top: 2em;
+        width: 80vw !important;
+    }
+
+    section#about #about-inner, section article {
+        flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    }
+    
+    #about-info {
+        flex-basis: 100%; /* Set flex basis to 100% for full width on mobile */
+    }
+    
+    #about-inner #admin-pic {
+        flex-basis: 100%; /* Set flex basis to 100% for full width on mobile */
+        margin-top: 2em; /* Add margin top to separate admin-pic on mobile screens */
+        margin-left: 0;
+    }
+
+    section#projects article .project-content {
+        margin-top: 2em;
+        padding-left: 0;
+    }
+
+    .project-content p {
+        margin-top: 1em;
+    }
 }
 
-#projects figure img {
-    border-radius: 8px;
+section#about ul{
+    width: 12em;
+    margin-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#projects figure:hover {
-    opacity: 0.8;
+section#about li{
+    width: 50%;
+    padding: 0.2em;
+    flex-wrap: wrap;
+    font-family: monospace;
 }
 
-button#email {
-    width: 10rem;
-    margin-top: 1.5rem;
-    margin-right: 1rem;
-    background: none;
-    border: 3px solid #eee;
-    border-radius: 8px;
-    height: 2.4rem;
+section#about li::before {
+    content: "> ";
+    color: var(--accent-color);
 }
 
-button#email a {
-    padding: 1.5rem;
-    font-family: 'Share Tech Mono';
-    font-size: 1rem;
-    text-align: center;
+#admin-pic {
+    position: relative;
+    margin-left: 1em;
 }
 
-button#email:hover{
-    background-color: #626b8a;
+#admin-pic img {
+    height: 280px;
+    width: 215px;
+}
+
+#admin-pic::after {
+    content: "";
+    height: 280px;
+    width: 215px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: -1;
+    border: 1px solid var(--accent-color);
+}
+
+section#projects article {
+    margin-left: 8px;
+}
+
+section#projects article figure {
+    position: relative;
+}
+
+section#projects article figure::after {
+    content: "";
+    height: 98%;
+    width: 100%;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: 1px solid var(--accent-color);
+    z-index: -1;
+}
+
+section#projects article figure img {
+    width: 250px;
+}
+
+section#projects article {
+    display: flex;
+    margin-bottom: 3em;
+}
+
+section#projects .project-content {
+    padding: 0 0 0.5em 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section#projects .project-content p{
+    font-size: 0.9em;
+}
+
+section#projects article ul{
+    margin-top: 1em;
+    display: flex;
+}
+
+section#projects article ul li {
+    padding: 0 0.4em;
+    font-family: monospace;
+}
+
+section#projects article ul li::before {
+    content: "> ";
+    color: var(--accent-color);
+}
+
+section#projects article ul li:first-child::before {
+    content: "";
+}
+
+section#projects article ul li:first-child {
+    padding-left: 0;
+}
+
+section#projects article ul li:last-child {
+    padding-right: 0;
+}
+
+a#email::before {
+    content: "> ";
+    color: var(--accent-color);
+}
+
+a#email {
+    margin-top: 1em;
+    font-size: 1.2em;
+    font-family: monospace;
+    transition: 0.2s ease;
+}
+
+a#email:hover {
+    margin-left: 0.5em;
+}
+
+footer {
+    height: 13vh;
+    width: 100%;
+    padding: 0 1.25em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer a {
+    margin-left: 1.5em;
 }
