@@ -69,6 +69,7 @@ h4 {
     color: var(--accent-color);
     letter-spacing: .15rem;
     font-size: 2rem;
+    opacity: 0;
 }
 
 h4::after {
@@ -218,7 +219,6 @@ nav a#active {
     }
 
     main {
-        margin-bottom: 2em;
         transition: margin-top 0.3s ease;
     }
 
@@ -285,6 +285,10 @@ section#about #about-info {
     section#projects article .project-content {
         margin-top: 2em;
         padding-left: 0;
+    }
+
+    section#about {
+        margin-bottom: 2em;
     }
 
     .project-content p {

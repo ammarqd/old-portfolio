@@ -1,28 +1,19 @@
-const headers = {
-  "about.html": "More about me",
-  "projects.html": "My Projects",
-  "contact.html": "Get in touch"
-};
+function typeSentence(e, delay = 50) {
+  const sentence = e.innerText;
+  e.innerHTML = "";
+  e.style.opacity = '1';
 
-const currentPage = window.location.pathname.split('/').pop();
-
-const header = headers[currentPage]
-
-function typeSentence(e, text, delay = 50) {
-  const letters = text.split("");
-  letters.forEach((letter, i) => {
+  for (let i = 0; i < sentence.length; i++) {
     setTimeout(() => {
-      e.append(letter);
+      e.append(sentence.charAt(i));
     }, i * delay);
-  });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   const h4Element = document.querySelector('h4');
-  const textLength = header.length;
-  const typewriterDelay = 50;
-  const blinkerDelay = textLength * 50;
-  h4Element.classList.add('typewriter');
-  h4Element.style.setProperty('--animation-delay', `${blinkerDelay}ms`);
-  typeSentence(h4Element, header, typewriterDelay);
+  const textLength = h4Element.innerText.length;
+  const delay = textLength * 600;
+  h4Element.style.setProperty('--animation-delay', `${delay}ms`);
+  typeSentence(h4Element);
 });
