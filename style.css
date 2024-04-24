@@ -272,12 +272,8 @@ section#about #about-info {
         flex-wrap: wrap; /* Allow items to wrap onto the next line */
     }
     
-    #about-info {
-        flex-basis: 100%; /* Set flex basis to 100% for full width on mobile */
-    }
-    
     #about-inner #admin-pic {
-        flex-basis: 100%; /* Set flex basis to 100% for full width on mobile */
+      /* Set flex basis to 100% for full width on mobile */
         margin-top: 2em; /* Add margin top to separate admin-pic on mobile screens */
         margin-left: 0;
     }
@@ -317,18 +313,20 @@ section#about li::before {
 
 #admin-pic {
     position: relative;
+    display: flex;
+    height: 100%;
     margin-left: 1em;
 }
 
 #admin-pic img {
     height: 280px;
-    width: 215px;
+    width: 220px;
 }
 
 #admin-pic::after {
     content: "";
-    height: 280px;
-    width: 215px;
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 8px;
     left: 8px;
@@ -342,6 +340,8 @@ section#projects article {
 
 section#projects article figure {
     position: relative;
+    display: flex;
+    height: 100%;
 }
 
 section#projects article figure::after {
