@@ -313,7 +313,6 @@ section#about li::before {
 
 #admin-pic img {
     height: 280px;
-    width: 220px;
 }
 
 #admin-pic::after {
