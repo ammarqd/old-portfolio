@@ -225,7 +225,7 @@ nav a#active {
 /* Media query for mobile screens */
 @media only screen and (max-width: 600px) {
 
-    body.show {
+    body.mobile-nav {
         overflow: hidden;
     }
 
@@ -251,7 +251,6 @@ nav a#active {
         z-index: 1000;
         transform: translateX(100%);
         transition: transform 0.3s ease;
-        overflow: hidden;
     }
 
     nav ul.mobile-nav {
