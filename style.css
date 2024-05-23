@@ -44,6 +44,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 h1 {
@@ -117,6 +118,40 @@ h5 {
     }
 }
 
+.loader {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.loader-inner {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: var(--main-bg-color);
+    transform: scaleY(1);
+    animation: loader-animation 1s forwards;
+}
+
+.loader-inner:first-child {
+    top: 0;
+    transform-origin: top;
+}
+
+.loader-inner:last-child {
+    bottom: 0;
+    transform-origin: bottom;
+}
+
+@keyframes loader-animation {
+    0% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(0);
+    }
+}
+
 nav ul {
     display: flex;
     gap: 0 2em;
@@ -160,10 +195,14 @@ nav a#active {
 .menu-toggle {
     display: none; /* Hide the sandwich menu by default */
     cursor: pointer;
+    z-index: 1001; /* Ensure the menu toggle is above the nav */
+    position: relative; /* Change from absolute to relative */
+    top: 0; /* Reset any previously set top value */
+    right: 0; /* Reset any previously set right value */
 }
 
 .bar {
-    width: 27px;
+    width: 25px;
     height: 2px;
     background-color: var(--main-color);
     margin: 6px 0;
@@ -171,53 +210,56 @@ nav a#active {
 }
 
 /* Change to X shape */
-.change .bar:nth-child(1) {
-    -webkit-transform: rotate(45deg) translate(7.25px, 4px);
+.mobile-nav .bar:nth-child(1) {
     transform: rotate(45deg) translate(7.25px, 4px);
 }
 
-.change .bar:nth-child(2) {
+.mobile-nav .bar:nth-child(2) {
     opacity: 0;
 }
 
-.change .bar:nth-child(3) {
-    -webkit-transform: rotate(-45deg) translate(7.25px, -4px);
+.mobile-nav .bar:nth-child(3) {
     transform: rotate(-45deg) translate(7.25px, -4px);
 }
 
-
-
 /* Media query for mobile screens */
 @media only screen and (max-width: 600px) {
+
+    body.show {
+        overflow: hidden;
+    }
+
     .menu-toggle {
-        display: block; /* Show the sandwich menu on mobile screens */
+        display: block;
+        position: relative;
+        top: 0;
+        right: 0;
     }
 
     nav ul {
-        display: none; /* Hide the navigation links by default on mobile */
-    }
-
-    ul.show {
-        display: flex; /* Show the navigation links when the menu is toggled */
-        flex-direction: column;
-        position: absolute;
-        background-color: var(--main-bg-color);
+        height: 100vh;
         width: 100%;
-        top: 80px;
-        left: 0;
+        display: flex; /* Ensure the navigation links are displayed */
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: var(--main-bg-color);
+        padding-top: 35%;
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        overflow: hidden;
     }
 
-    ul.show li {
-        text-align: center;
-        padding: 0.35em 0;
+    nav ul.mobile-nav {
+        transform: translateX(0);
     }
 
-    main {
-        transition: margin-top 0.3s ease;
-    }
-
-    main.pushed-down {
-        margin-top: 140px; /* Adjust this value based on your menu height */
+    nav ul li {
+        margin: 1em 0;
     }
 }
 
@@ -421,4 +463,8 @@ footer {
 
 footer a {
     margin-left: 1.5em;
+}
+
+footer a:hover {
+    color: #ccc;
 }
