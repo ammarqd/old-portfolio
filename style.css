@@ -1,9 +1,7 @@
 :root {
     --main-bg-color: #0f172a;
     --main-color: #fff;
-    --accent-color: #3eb5bb;
-    --link-color: #ccc;
-}
+    --accent-color: #3eb5bb;}
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -237,7 +235,7 @@ nav a#active {
     }
 
     nav ul {
-        height: 100vh;
+        height: 100%;
         width: 100%;
         display: flex; /* Ensure the navigation links are displayed */
         flex-direction: column;
@@ -250,11 +248,13 @@ nav a#active {
         padding-top: 35%;
         z-index: 1000;
         transform: translateX(100%);
-        transition: transform 0.3s ease;
+        opacity: 0; /* Start with opacity 0 */
+        transition: transform 0.5s ease, opacity 0.5s ease;
     }
 
     nav ul.mobile-nav {
         transform: translateX(0);
+        opacity: 0.95;
     }
 
     nav ul li {
@@ -411,28 +411,16 @@ section#projects .project-content p{
 section#projects article ul{
     margin-top: 1em;
     display: flex;
+    gap: 0 0.4em;
 }
 
 section#projects article ul li {
-    padding: 0 0.4em;
     font-family: monospace;
 }
 
-section#projects article ul li::before {
+section#projects article ul li:not(:first-child)::before {
     content: "> ";
     color: var(--accent-color);
-}
-
-section#projects article ul li:first-child::before {
-    content: "";
-}
-
-section#projects article ul li:first-child {
-    padding-left: 0;
-}
-
-section#projects article ul li:last-child {
-    padding-right: 0;
 }
 
 a#email::before {
@@ -458,12 +446,5 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
-
-footer a {
-    margin-left: 1.5em;
-}
-
-footer a:hover {
-    color: #ccc;
+    gap: 1.5em;
 }
