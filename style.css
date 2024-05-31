@@ -422,3 +422,7 @@ footer {
     align-items: center;
     gap: 1.5em;
 }
+
+footer a:hover svg path{
+    fill: #A6BEEE;
+}
