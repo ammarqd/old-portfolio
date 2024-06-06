@@ -126,7 +126,7 @@ nav {
     
     a {
         padding-bottom: 0.2em;
-        color: var(--link-colour);
+        color: var(--main-color);
         font-size: 1.4em;
         position: relative;
         transition: 0.3s ease-out;
@@ -202,27 +202,30 @@ nav {
         z-index: 1001;
     }
 
-    ul {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: start;
-        position: fixed;
-        top: 0;
-        right: 0;
-        background-color: var(--bg-color);
-        padding-top: 35%;
-        z-index: 1000;
-        transform: translateX(100%);
-        opacity: 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
+    nav {
+        
+        ul {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: var(--bg-color);
+            padding-top: 35%;
+            z-index: 1000;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
 
-        li {
-            margin: 1em 0;
+            li {
+                margin: 1em 0;
+            }
         }
-
+        
     }   
 
     ul.mobile-nav {
@@ -313,7 +316,7 @@ section#about, section#projects {
 }
 
 #projects {
-    
+
     margin-top: 2.5em;
 
     article {
@@ -380,7 +383,7 @@ section#about, section#projects {
     }
     
     #about-inner #admin-pic {
-        margin-top: 2em;
+        margin-top: 3em;
         margin-left: 0;
     }
 
