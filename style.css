@@ -91,7 +91,9 @@ h4::after {
 }
 
 h5 {
-    color: var(--accent-color);
+    a {
+        color: var(--accent-color);
+    }
     font-size: 1.1em;
 }
 
