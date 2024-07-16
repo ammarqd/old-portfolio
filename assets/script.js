@@ -17,3 +17,13 @@ document.addEventListener("DOMContentLoaded", function() {
   h4Element.style.setProperty('--animation-delay', `${delay}ms`);
   typeSentence(h4Element);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navUl = document.querySelector('nav ul');
+  const body = document.querySelector('body');
+
+  menuToggle.addEventListener('click', () => {
+      [menuToggle, navUl, body].forEach(e => e.classList.toggle('mobile-nav'));
+  });
+});

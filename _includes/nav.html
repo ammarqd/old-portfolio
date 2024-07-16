@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+        <li><a {% if page.title == "home" %}id="active"{% endif %} href="index.html">home</a></li>
+        <li><a {% if page.title == "about" %}id="active"{% endif %} href="about.html">about</a></li>
+        <li><a {% if page.title == "projects" %}id="active"{% endif %} href="projects.html">projects</a></li>
+        <li><a {% if page.title == "contact" %}id="active"{% endif %} href="contact.html">contact</a></li>
+    </ul>
+    <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>                        
+</nav>

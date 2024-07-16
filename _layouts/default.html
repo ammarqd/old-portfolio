@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammar Qadir | Software Developer & Engineer</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Share+Tech+Mono" rel="stylesheet">
+    <script src="/assets/script.js" defer></script>
+</head>
+<body>
+    <div id="main-wrapper">
+        <header>
+            <img src="/assets/images/AQLogo.png" height="38" width="49px" alt="Logo">
+            {% include nav.html %}
+        </header>
+        <main>
+            {{ content }}
+        </main>
+        <footer>
+            {% include footer.html %}
+        </footer>
+    </div>
+</body>
+</html>
