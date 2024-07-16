@@ -1,8 +1,8 @@
 # Portfolio
 https://ammarqd.github.io
 
-Utilised:
-HTML
-CSS
-JavaScript
-Jekyll
+Utilised: 
+HTML 
+CSS 
+JavaScript 
+Jekyll 
