@@ -1,2 +1,8 @@
 # Portfolio
-ammarqd.github.io/Portfolio/index.html
+https://ammarqd.github.io
+
+Utilised:
+HTML
+CSS
+JavaScript
+Jekyll
