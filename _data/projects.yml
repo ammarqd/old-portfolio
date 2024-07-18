@@ -31,16 +31,17 @@
     - Unity Engine
     - Blender
 
-- title: "Portfolio Site"
+- title: "Portfolio Site V2.0"
   link: "https://ammarqd.github.io"
   image: "assets/images/PortfolioSite.jpg"
   description: |
-    A personal portfolio site, the one you're viewing now. Coded in pure JavaScript, HTML & CSS,
-    with seamless animations and aesthetic use of colours, a platform to showcase projects.
+    My personal portfolio site, the one you're viewing now. Coded in pure JavaScript, HTML & CSS, 
+    and utilising Jekyll for static site generation, a platform to showcase projects.
   technologies:
     - HTML
     - CSS
     - JavaScript
+    - Jekyll
 
 - title: "Weather App"
   link: "https://github.com/ammarqd/Weather-app-GUI"
