@@ -1,10 +1,7 @@
-function typeSentence(e, typingDelay) {
-  const sentence = e.innerText;
-  e.innerHTML = "";
-
+function typeSentence(e, sentence, typingDelay) {
   for (let i = 0; i < sentence.length; i++) {
     setTimeout(() => {
-      e.append(sentence.charAt(i));
+      e.textContent += sentence.charAt(i);
     }, i * typingDelay);
   }
 }
@@ -16,11 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const h4Element = document.querySelector('h4');
 
   if (h4Element) {
-    const textLength = h4Element.innerText.length;
-    const typingDelay = 50
+    const sentence = h4Element.getAttribute('data-content');
+    const textLength = sentence.length;
+    const typingDelay = 50;
     const blinkerDelay = textLength * typingDelay;
     h4Element.style.setProperty('--animation-delay', `${blinkerDelay}ms`);
-    typeSentence(h4Element, typingDelay);
+    typeSentence(h4Element, sentence, typingDelay);
   }
 
   menuToggle.addEventListener('click', () => {
