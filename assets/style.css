@@ -373,6 +373,7 @@ section#about, section#projects {
             height: 100%;
         
             img {
+                min-height: 150px;
                 width: 250px;
             }
 
