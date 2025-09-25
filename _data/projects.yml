@@ -1,25 +1,3 @@
-- title: "PRISM App"
-  link: "https://github.com/ammarqd/Github-stats-app"
-  image: "assets/images/PrismApp.png"
-  description: |
-    An image filters web app with a user friendly interface and aesthetic visual design and user login system.
-  technologies:
-    - JavaScript
-    - React
-    - TailwindCSS
-    - Shadcn/ui
-    - Express
-    - PostgreSQL
-
-- title: "Github Stats App"
-  link: "https://github.com/ammarqd/Github-stats-app"
-  image: "assets/images/GithubStatsApp.png"
-  description: |
-    A React app that fetches a GitHub user's repositories and displays their first ever commit. 
-    Built with async/await and the GitHub API, it dynamically fetches data and provides instant feedback to users.
-  technologies:
-    - JavaScript
-    - React
 
 - title: "Cool Compiler"
   link: "https://github.com/ammarqd/cool-compiler"
@@ -31,6 +9,29 @@
   technologies:
     - Java
     - ANTLR4
+
+- title: "PRISM App"
+  link: "https://github.com/ammarqd/Github-stats-app"
+  image: "assets/images/PrismApp.png"
+  description: |
+    A web app that lets users upload and enhance images with a wide variety of filters. 
+    Features a clean and intuitive interface, with the ability to save,
+    manage, and enjoy edited images.
+  technologies:
+    - React
+    - TailwindCSS
+    - Express
+    - PostgreSQL
+
+- title: "Github Stats App"
+  link: "https://github.com/ammarqd/Github-stats-app"
+  image: "assets/images/GithubStatsApp.png"
+  description: |
+    A React app that fetches a user's repositories and displays their first commit. 
+    Built with async/await and the GitHub API, it dynamically retrieves data and gives users instant feedback.
+  technologies:
+    - JavaScript
+    - React
 
 - title: "CIFAR-10 Image Classifier"
   link: "https://github.com/ammarqd/deep-learning-image-classifier"

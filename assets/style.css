@@ -463,6 +463,7 @@ section#about, section#projects {
     ul{
         margin-top: 1em;
         display: flex;
+        flex-wrap: wrap;
         gap: 0 0.4em;
 
         li {
