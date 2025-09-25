@@ -1,5 +1,39 @@
+- title: "PRISM App"
+  link: "https://github.com/ammarqd/Github-stats-app"
+  image: "assets/images/PrismApp.png"
+  description: |
+    An image filters web app with a user friendly interface and aesthetic visual design and user login system.
+  technologies:
+    - JavaScript
+    - React
+    - TailwindCSS
+    - Shadcn/ui
+    - Express
+    - PostgreSQL
+
+- title: "Github Stats App"
+  link: "https://github.com/ammarqd/Github-stats-app"
+  image: "assets/images/GithubStatsApp.png"
+  description: |
+    A React app that fetches a GitHub user's repositories and displays their first ever commit. 
+    Built with async/await and the GitHub API, it dynamically fetches data and provides instant feedback to users.
+  technologies:
+    - JavaScript
+    - React
+
+- title: "Cool Compiler"
+  link: "https://github.com/ammarqd/cool-compiler"
+  image: "assets/images/CoolCompiler.png"
+  description: |
+    A compiler for the Cool programming language, consisting of lexer, parser, and 
+    backend code generation. Coded in Java utilising the visitor design pattern,
+    with full test coverage for each component.
+  technologies:
+    - Java
+    - ANTLR4
+
 - title: "CIFAR-10 Image Classifier"
-  link: "https://github.com/ammarqd/PyTorch-Image-Classifier"
+  link: "https://github.com/ammarqd/deep-learning-image-classifier"
   image: "assets/images/ImageClassifier.jpg"
   description: |
     An image classifier with a custom architecture, utilising knowledge learnt from a
@@ -10,7 +44,7 @@
     - Pandas
 
 - title: "Image Processing Application"
-  link: "https://github.com/ammarqd/Image-Processing-Application"
+  link: "https://github.com/ammarqd/image-processing-application"
   image: "assets/images/ImageProcessingApp.jpg"
   description: |
     An Image processing application for processing a single image with filters or filtering
@@ -21,7 +55,7 @@
     - Swing
 
 - title: "Never Upon a Time"
-  link: "https://ammarqd.github.io/Never-Upon-a-Time-Build/Build/index.html"
+  link: "https://ammarqd.github.io/never-upon-a-time-build/build/index.html"
   image: "assets/images/NeverUponaTime.jpg"
   description: |
     Follow the protagonist through a surreal realm inspired by Alice in Wonderland, navigating
@@ -44,7 +78,7 @@
     - Jekyll
 
 - title: "Weather App"
-  link: "https://github.com/ammarqd/Weather-app-GUI"
+  link: "https://github.com/ammarqd/Weather-app-gui"
   image: "assets/images/WeatherApp.jpg"
   description: |
     A weather app coded in React with a stylish GUI and weather information obtained through an API.
@@ -56,7 +90,7 @@
     - React
 
 - title: "Adventure Game"
-  link: "https://github.com/ammarqd/Adventure-Game"
+  link: "https://github.com/ammarqd/adventure-game"
   image: "assets/images/AdventureGame.jpg"
   description: |
     A turn-based adventure game coded in Java and utilising the Swing API to create the GUI.
