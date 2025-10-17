@@ -1,0 +1,13 @@
+{
+  "description": "I am a Software Developer & Engineer with a passion for tinkering and understanding how things work. My interests span Full Stack Web Development, Game Development, Neural Networks & Deep Learning, and more. I also have a keen creative eye and enjoy projects that allow me the freedom to self-express. Outside of programming, I love reading, exploring new foods and cultures, and have recently been trying my hand at bouldering.",
+  "line": "Some technologies I've been working on lately include:",
+  "image": "/images/admin-pic.jpg",
+  "technologies": [
+    "JavaScript",
+    "React",
+    "Python",
+    "Java",
+    "Unity",
+    "PyTorch"
+  ]
+}

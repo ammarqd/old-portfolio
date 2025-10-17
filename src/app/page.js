@@ -1,0 +1,9 @@
+export default function Home() {
+  return (
+    <section id="home">
+      <h2>Hi, I am</h2>
+      <h1>Ammar Qadir</h1>
+      <h3>Software developer & engineer.</h3>
+    </section>
+  )
+}
