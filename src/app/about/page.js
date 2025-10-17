@@ -26,5 +26,5 @@ export default function About() {
         </figure>
       </div>
     </section>
-  );
+  )
 }

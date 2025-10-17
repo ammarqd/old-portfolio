@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 :root {
     --bg-color: #0f172a;
     --main-color: #fff;
@@ -81,21 +79,11 @@ h4::after {
     bottom: 3px;
     right: -12px;
     background: var(--accent-color);
-    animation: blink 0.5s linear var(--animation-delay) infinite alternate;
 }
 
-nav ul {
-    position: relative; /* for the underline positioning */
+h4.complete::after {
+    animation: blink 0.5s linear 0s infinite alternate;
 }
-
-.moving-underline {
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    transition: all 0.3s ease; /* smooth sliding */
-}
-
 
 @keyframes blink {
     0% {
@@ -165,8 +153,8 @@ nav {
 
     ul {
         display: flex;
-        position: relative;
         gap: 0 2em;
+        position: relative;
     }
     
     a {
@@ -177,17 +165,8 @@ nav {
         transition: 0.3s ease-out;
     }
 
-    a:hover {
+    a.active {
         color: var(--main-color);
-    }
-
-    .moving-underline {
-        position: absolute;
-        bottom: -6px;
-        height: 1px;
-        background-color: var(--accent-color);
-        transition: all 0.3s ease;
-        pointer-events: none;
     }
 
 }
@@ -242,7 +221,7 @@ nav {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: start;
+            justify-content: flex-start;
             position: fixed;
             top: 0;
             right: 0;
@@ -256,6 +235,15 @@ nav {
             li {
                 margin: 1.2em 0;
             }
+
+            a {
+                padding-bottom: 5px;
+            }
+
+            a.active {
+                border-bottom: 1px solid var(--accent-color);
+            }
+
         }
         
     }   

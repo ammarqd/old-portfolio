@@ -2,48 +2,45 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 })
-  const navRefs = useRef([])
+  const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 })
   const pathname = usePathname()
+  const navRef = useRef(null)
 
-  const navItems = useMemo(() => [
+  const navItems = [
     { name: 'home', path: '/' },
     { name: 'about', path: '/about' },
     { name: 'projects', path: '/projects' },
     { name: 'contact', path: '/contact' }
-  ], [])
+  ]
 
-  const handleNavClick = () => {
-    setIsMobileMenuOpen(false)
+  const updateUnderline = (element) => {
+    if (element && navRef.current) {
+      const navRect = navRef.current.getBoundingClientRect()
+      const linkRect = element.getBoundingClientRect()
+      setUnderlineStyle({
+        width: linkRect.width,
+        left: linkRect.left - navRect.left
+      })
+    }
+  }
+
+  const resetToActive = () => {
+    const activeLink = navRef.current?.querySelector('.active')
+    if (activeLink) {
+      updateUnderline(activeLink)
+    }
   }
 
   useEffect(() => {
-    // Set underline under active link on mount or pathname change
-    const activeIndex = navItems.findIndex(item => item.path === pathname)
-    if (navRefs.current[activeIndex]) {
-      const { offsetLeft, offsetWidth } = navRefs.current[activeIndex]
-      setUnderlineStyle({ left: offsetLeft, width: offsetWidth })
-    }
-  }, [pathname, navItems])
+    resetToActive()
+  }, [pathname])
 
-  const handleMouseEnter = (index) => {
-    if (navRefs.current[index]) {
-      const { offsetLeft, offsetWidth } = navRefs.current[index]
-      setUnderlineStyle({ left: offsetLeft, width: offsetWidth })
-    }
-  }
-
-  const handleMouseLeave = () => {
-    // Reset underline to active link
-    const activeIndex = navItems.findIndex(item => item.path === pathname)
-    if (navRefs.current[activeIndex]) {
-      const { offsetLeft, offsetWidth } = navRefs.current[activeIndex]
-      setUnderlineStyle({ left: offsetLeft, width: offsetWidth })
-    }
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false)
   }
 
   return (
@@ -56,32 +53,36 @@ export default function Header() {
           </svg>
         </h1>
       </Link>
-
       <nav>
-        <ul className={isMobileMenuOpen ? 'mobile-nav' : ''}>
-          {navItems.map((item, index) => (
+        <ul 
+          ref={navRef}
+          className={isMobileMenuOpen ? 'mobile-nav' : ''}
+          onMouseLeave={resetToActive}
+        >
+          {navItems.map(item => (
             <li key={item.name}>
               <Link
                 href={item.path}
-                ref={(el) => (navRefs.current[index] = el)}
+                className={pathname === item.path ? 'active' : ''}
                 onClick={handleNavClick}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={(e) => updateUnderline(e.currentTarget)}
               >
                 {item.name}
               </Link>
             </li>
           ))}
-          {/* moving underline */}
-          <span
-            className="moving-underline"
+          <span 
             style={{
-              left: underlineStyle.left,
-              width: underlineStyle.width,
+              position: 'absolute',
+              bottom: '-5px',
+              left: `${underlineStyle.left}px`,
+              width: `${underlineStyle.width}px`,
+              height: '1px',
+              background: 'var(--accent-color)',
+              transition: 'all 0.3s ease',
             }}
           />
         </ul>
-
         <div
           className={`menu-toggle ${isMobileMenuOpen ? 'mobile-nav' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
